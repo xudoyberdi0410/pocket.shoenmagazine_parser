@@ -77,7 +77,8 @@ def download_images(image_urls: list):
 def main() -> None:
     url = input("URL to manga webpage: ")
     if url.startswith("https://pocket.shonenmagazine.com"):
-        get_image_urls(url=url)
+        urls = get_image_urls(url=url)
+        download_images(urls)
     else:
         print("Only for https://pocket.shonenmagazine.com")
 
