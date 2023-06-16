@@ -1,3 +1,4 @@
+import os
 from seleniumwire import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -71,7 +72,8 @@ def download_images(image_urls: list):
             for j in range(0, 4):
                 for i in range(len(blocks)):
                     final_image.paste(blocks[i][j], (width*i, height*j, width*(i+1), height*(j+1)))
-                    
+            if not os.path.exists('images'):
+                os.makedirs('images')
             final_image.save(f'images/{index}.jpg')
 
 def main() -> None:
